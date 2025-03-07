@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0 # Use a versão desejada do MySQL
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: sua_senha_root # Substitua por uma senha segura
+      MYSQL_DATABASE: sua_base_de_dados # Nome da sua base de dados (opcional)
+      MYSQL_USER: seu_usuario # Nome do usuário (opcional)
+      MYSQL_PASSWORD: sua_senha # Senha do usuário (opcional)
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql # Persistência de dados
+    restart: always
+
+volumes:
+  mysql-data:
