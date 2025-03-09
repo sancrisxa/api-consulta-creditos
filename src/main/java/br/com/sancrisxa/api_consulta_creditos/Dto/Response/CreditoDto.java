@@ -1,36 +1,19 @@
-package br.com.sancrisxa.api_consulta_creditos.model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+package br.com.sancrisxa.api_consulta_creditos.Dto.Response;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
-public class Credito {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class CreditoDto {
     private String numeroCredito;
     private String numeroNfse;
     private LocalDate dataConstituicao;
     private BigDecimal valorIssqn;
     private String tipoCredito;
-    private boolean simplesNacional;
-    private BigDecimal aliquota;
+    private String simplesNacional;
+    private double aliquota;
     private BigDecimal valorFaturado;
     private BigDecimal valorDeducao;
     private BigDecimal baseCalculo;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNumeroCredito() {
         return numeroCredito;
@@ -72,11 +55,11 @@ public class Credito {
         this.tipoCredito = tipoCredito;
     }
 
-    public boolean isSimplesNacional() {
+    public String getSimplesNacional() {
         return simplesNacional;
     }
 
-    public void setSimplesNacional(boolean simplesNacional) {
+    public void setSimplesNacional(String simplesNacional) {
         this.simplesNacional = simplesNacional;
     }
 
@@ -84,7 +67,7 @@ public class Credito {
         return aliquota;
     }
 
-    public void setAliquota(BigDecimal aliquota) {
+    public void setAliquota(double aliquota) {
         this.aliquota = aliquota;
     }
 
@@ -112,4 +95,3 @@ public class Credito {
         this.baseCalculo = baseCalculo;
     }
 }
-
